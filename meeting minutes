@@ -1,0 +1,28 @@
+March 15 2017 14:30-15:20
+
+Project Management:
+  Impediments to progress:
+    Not enough information. The system architecture is not clear.
+    University is reluctant to give information:
+      Only allowed to use the name of the router.
+      We will only have access to 2 routers.
+      We wont have access to mac addresses.
+      Network:
+        Hoping for access to API (aruba) which is the universities wifi management entity. API will give us access to figure out location of people and flow map.
+      Security:
+        Dont want to give us details of their system.
+    
+  Recommendations:
+    We need clarification on what data we will have access to.
+    We need clarification on what other subsystems will require from us.
+    Who will be pulling and who will be pushing. This can be provided with a component diagram.
+    We could consult the integration team for clarification on the inter subsystem APIs.
+    To get any work done in the light of uncertainty and incomplete information we will have to make assumptions.
+      We assume that we will get user location data tied with persistent ID.
+
+  Vision for the mock demo:
+    Not clear yet. Hopefully on friday.
+
+  Decisions made:
+    Draft a document of question for the client on friday.
+    Startup slack group.
