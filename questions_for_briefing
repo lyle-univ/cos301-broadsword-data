@@ -1,2 +1,4 @@
 What does the rest of the system need from the data stream subsystem?
 What are the constraints of the subsystem? (memory, timing)
+Who's responsibility is deployment of the technology? Data or Integration?
+    The reason this is asked is because the data stream subsystem, if done right, is simply the deployment of the right technologies. Of course we need to do the research as to what these technologies will be.
