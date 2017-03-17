@@ -21,3 +21,15 @@ Issues with Apache Flink:
 
 Research sources:
 https://dzone.com/articles/exploring-message-brokers
+http://stackoverflow.com/questions/731233/activemq-or-rabbitmq-or-zeromq-or?rq=1
+
+Book for demonstration
+
+Mock answer: Locate the device that is connected. Just a location with a device ID
+REST services. Define your own protocol. Discuss it with integration.
+Stream data comes from wifi access point controllers.
+
+Security:
+NA
+Hardware:
+Unknown
