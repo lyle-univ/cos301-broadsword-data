@@ -7,7 +7,8 @@ Is the API over the wire?
     Alternatively, if we need a lightweight system that uses minimal resources, due to hardware limitations, then http://nsq.io/ might be a good option even though it is quite a young project.
 Does this subsystem have any persistence?
 	Any underlying database to recovery from power failure
-Does the data stream subsystem implement any of the external services, such as analytics
-?
+Does the data stream subsystem implement any of the external services, such as analytics?
 From the spec, "The idea is that a generic downstream/upstream exists between user devices and the
 system server", this seems to imply that the data stream subsystem is the layer between the outside world and the rest of the system. Is this correct?
+Do other subsystems communicate with each other through the data stream subsystem?
+  If this is the case then any Message Orientated Middleware is a good options to make use of. For example Apache ActiveMQ
