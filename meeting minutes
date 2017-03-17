@@ -26,3 +26,23 @@ Project Management:
   Decisions made:
     Draft a document of question for the client on friday.
     Startup slack group.
+
+March 17 12:30-13:00
+  Concerns raised:
+    The scope of the data streaming subsystem and what services it should provide to the rest of the system.
+    What hardware will the system run on?
+    Are security measures such as kerberos and per client authentication needed?
+    What API should we expose to the other subsystems? REST? Flink or other messaging system specific protocol?
+
+  Feedback received:
+    For the purposes of next weeks demonstration, only a device location and ID must be published in the messaging system.
+    We do not know yet what hardware is needed, but the lecturer said it should not be a problem to accommodate our needs.
+    No security measures for the purposes of this prototype system needs to be implemented.
+    We should involve the integration team in the discussion of what sort of an API we should expose to the rest of the system.
+      RESTfull API is ideal for low coupling and does not require much from the other subsystems to work.
+      However, the client has expressed that the system should be as fast as possible.
+      In addition, Flink, our technology of choice, does not have a REST API. 
+      Because REST is not an option, it is unavoidable that the data streaming subsystem will impose additional requirements
+      on the other subsystems in order for them to talk to each other. 
+      This will be done by involving the integration team and teams from other relevant subsystems to reach consensus on the protocol.
+      For the purpose of next weeks demonstration, only navigation will need to be involved in the talks about APIs
