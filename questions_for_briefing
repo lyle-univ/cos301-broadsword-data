@@ -4,3 +4,7 @@ Who's responsibility is deployment of the technology? Data or Integration?
     The reason this is asked is because the data stream subsystem, if done right, is simply the deployment of the right technologies. Of course we need to do the research as to what these technologies will be.
 Is the API over the wire?
     If it is, it might be best to use a REST API. Kafa becomes a better option then since flink does not have a REST API to make use of, yet Kafka does.
+Does this subsystem have any persistence?
+	Any underlying database to recovery from power failure
+Does the data stream subsystem implement any of the external services, such as analytics
+?
