@@ -36,7 +36,7 @@ while True:
       sock,addr = s.accept()
       send = 1
       while send!=0:
-        send = sock.send('{"longitude":'+gen_random_longitude()+',"latitude:"'+gen_random_latitude()+',"altitude":'+gen_random_altitude()+"ID:"+str(randint(0,999999999))+'}')
+        send = sock.send('{"longitude":'+gen_random_longitude()+',"latitude:"'+gen_random_latitude()+',"altitude":'+gen_random_altitude()+',"ID:"'+str(randint(0,999999999))+'}')
   except SocketError as e:
     continue #do nothing
   finally:
