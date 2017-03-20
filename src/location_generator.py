@@ -2,6 +2,8 @@
 
 import socket
 from random import randint
+from socket import error as SocketError
+import errno
 
 def gen_random_longitude():
   deg = randint(-180,180)
@@ -29,4 +31,14 @@ s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1);
 s.bind((HOST, PORT))
 s.listen(4);
 
+while True:
+  try:
+      sock,addr = s.accept()
+      send = 1
+      while send!=0:
+        send = sock.send('{"longitude":'+gen_random_longitude()+',"latitude:"'+gen_random_latitude()+',"altitude":'+gen_random_altitude()+"ID:"+str(randint(0,999999999))+'}')
+  except SocketError as e:
+    continue #do nothing
+  finally:
+    sock.close();
 
