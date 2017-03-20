@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+import socket
 from random import randint
 
 def gen_random_longitude():
@@ -18,4 +19,14 @@ def gen_random_latitude():
 
 def gen_random_altitude():
   return str(randint(0,4000))
+
+HOST = ''
+PORT = 2000
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM);
+#from here: http://stackoverflow.com/questions/4465959/python-errno-98-address-already-in-use
+s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1);
+s.bind((HOST, PORT))
+s.listen(4);
+
 
