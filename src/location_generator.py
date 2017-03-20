@@ -16,4 +16,6 @@ def gen_random_latitude():
   subsec = randint(0,9)
   return str(deg)+str(min)+str(sec)+str(subsec)
 
+def gen_random_altitude():
+  return str(randint(0,4000))
 
