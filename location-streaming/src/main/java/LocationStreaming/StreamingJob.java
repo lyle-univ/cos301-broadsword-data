@@ -36,8 +36,8 @@ public class StreamingJob {
 		// set up the streaming execution environment
 	 // TODO code application logic here
       		final  StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-        	DataStream<String > inputStream=env.socketTextStream("localhost", 2001);
- 			 inputStream.map(new Sanitize()).filter(new Filter()).writeAsText("/home/seonin/output.txt", WriteMode.OVERWRITE);
+        	DataStream<String > inputStream=env.socketTextStream("localhost", 3000);
+ 			 inputStream.map(new Sanitize()).filter(new Filter()).writeAsText("/tmp/output.txt");
    			 env.execute("Location Streaming");
 	}
 	 public static class Sanitize implements MapFunction<String, String>
