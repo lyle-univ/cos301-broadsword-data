@@ -37,7 +37,7 @@ def gen_wrong_latitude():
   return str(deg)+str(min)+str(sec)+str(subsec)
 
 HOST = ''
-PORT = 2000
+PORT = 3000
 COUNT = 1
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM);
 #from here: http://stackoverflow.com/questions/4465959/python-errno-98-address-already-in-use
