@@ -81,3 +81,25 @@ March Wed 13:36-15:34
 
     Write a sanitiser routing in flink.
     Remove vestigial records from the json stream.
+
+March 31 11:30-12:12
+  Attendees:
+    Data team
+  Itenerary:
+    
+  Discussion:
+    We will be getting access to the analytics engine of arubanet.
+      It has a restful pub/sub api.
+    The requirements inside the domain of the data stream subsystem.
+    
+  Concerns raised:
+    Our requirements keep changing. There is a communication problem between the customer and the respresentatives and integration team.
+    The requirements need to be enumerated and put on paper for signoff with the relevant parties.
+    Data team does not have the concrete requirements yet. The representative says that we will have them clarified on Monday, but the deadline is on Wednesday.
+    If the data team does not have the requirements, no project management can occur.
+
+  Plan of action:
+    Write mock data generators that are congruent with the aruba analytics engine.
+    Have meetings with Vreda, integration and GIS about expectations and requirements from us.
+    Write code serves requests from GIS.
+    

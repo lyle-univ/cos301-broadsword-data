@@ -24,20 +24,20 @@ def gen_random_altitude():
 
 def gen_wrong_longitude():
   deg = randint(0,1000)
-  min = randint(-100,0)
-  sec = randint(-100,0)
-  subsec = randint(-9,0)
+  min = randint(60,100)
+  sec = randint(60,100)
+  subsec = randint(0,100)
   return str(deg)+str(min)+str(sec)+str(subsec)
 
 def gen_wrong_latitude():
   deg = randint(0,900)
-  min = randint(-100,0)
-  sec = randint(-100,0)
-  subsec = randint(-9,0)
+  min = randint(60,100)
+  sec = randint(60,100)
+  subsec = randint(0,100)
   return str(deg)+str(min)+str(sec)+str(subsec)
 
 HOST = ''
-PORT = 2000
+PORT = 3000
 COUNT = 1
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM);
 #from here: http://stackoverflow.com/questions/4465959/python-errno-98-address-already-in-use
