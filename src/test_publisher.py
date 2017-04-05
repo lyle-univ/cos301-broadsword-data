@@ -2,8 +2,6 @@ import nsq
 import tornado.ioloop
 import time
 
-file = open("test_object","r")
-
 def pub_message():
   writer.pub('Data', '{"src"  : "GIS","dest" : "Data","msgType" : "request","queryType" : "give_mac", "content" : {"mac" : "aa:aa:aa:aa"} }', finish_pub)
 
