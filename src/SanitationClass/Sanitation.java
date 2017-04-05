@@ -22,8 +22,7 @@ class Sanitation {
 
 	//Will make more functions for each type of clean up that needs to be done
 	static String cleanJSONString(String _json) {
-<<<<<<< HEAD
-		String returnVal = "No Error";
+		String returnVal = "Error";
 		try {
 			//If any variable names change then just change the strings inside the get functions parameter
 			JSONObject jsonObject = new JSONObject(_json);
@@ -39,25 +38,6 @@ class Sanitation {
 			String macAddress = strip4.getString("addr");
 
 			returnVal = "{ \"TimeStamp\": " + ts + ", \"MacAddress\": \"" + macAddress + "\", \"x\": \"" + longitude + "\", \"y\": \"" + latitude + "\" }";
-=======
-		String returnVal = "Error";
-		try {
-			//If any variable names change then just change the strings inside the get functions parameter
-			JSONObject jsonObject = new JSONObject(_json);
-			String userID = jsonObject.getString("ID");
-			//System.out.println(userID);
-
-			int longitude = jsonObject.getInt("Longitude");
-			//System.out.println(longitude);
-
-			int latitude = jsonObject.getInt("Latitude");
-			//System.out.println(latitude);
-
-			int altitude = jsonObject.getInt("Altitude");
-			//System.out.println(altitude);
-
-			returnVal = "{ ID: '" + userID + "', Longitude: " + longitude + ", Latitude: " + latitude + ", Altitude: " + altitude + " }";
->>>>>>> wip
 		} catch (JSONException e) {
 			System.out.println(e.getMessage());
 			return null;
