@@ -1,4 +1,15 @@
 \subsection{End User}
+This section is intended for system administrators and anyone that needs to deploy this subsystem.
 \subsubsection{Installation and dependencies}
-\subsubsection{Daily operations}
+To satisfy dependencies run
+\begin{verbatim}
+  make dependency
+\end{verbatim}
+To install the system, run
+\begin{verbatim}
+  make install
+\end{verbatim}
+\subsubsection{Configuration}
+The ALE server that exposes the API for the Aruba engine, as well as the NSQ server that acts as a messaging system, will have a host address an port to connect to. These details are placed in the data_subsystem.cfg file.
 \subsubsection{Troubleshooting}
+Any malformed queries made to the data subsystem will be logged in a file called error.log for diagnostic purposes. In addition, any connection issues to either the ALE or NSQ server will also be logged.
