@@ -1,8 +1,6 @@
 import urllib2
 
 class Aruba:
-    host_name = ""
-    port = ""
 
     def __init__(self, host_name, port):
         self.host_name = host_name
