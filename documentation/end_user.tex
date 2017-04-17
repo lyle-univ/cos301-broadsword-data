@@ -10,6 +10,6 @@ To install the system, run
   make install
 \end{verbatim}
 \subsubsection{Configuration}
-The ALE server that exposes the API for the Aruba engine, as well as the NSQ server that acts as a messaging system, will have a host address and port to connect to. These details are placed in the data_subsystem.cfg file.
+The ALE server that exposes the API for the Aruba engine, as well as the NSQ server that acts as a messaging system, will have a host address and port to connect to. These details are placed in the data_subsystem.cfg file or as program arguments depending on what data decides on.
 \subsubsection{Troubleshooting}
 Any malformed queries made to the data subsystem are logged in a file called error.log for diagnostic purposes. In addition, any connection issues to either the ALE or NSQ server is also be logged.
