@@ -5,3 +5,4 @@ dependencies:
 
 images:
 	java -jar Umlet/umlet.jar -action=convert -format=pdf -filename=component_diagram.uxf -output=component_diagram.pdf;
+	java -jar Umlet/umlet.jar -action=convert -format=pdf -filename=class_diagram.uxf -output=class_diagram.pdf;
