@@ -2,19 +2,13 @@ import urllib2
 import json
 
 class LocationLookup:
- 
+   def __init__(self, hostname, port, username, password):
+      self.aruba_handle = aruba_wrapper.Aruba(hostname,port,username,password)
  
 	def get_json(self,mac_addr):
-		url = ('https://137.215.6.208/api/v1/location?sta_eth_mac='+mac_addr)
- 		username = ''
-		password = ''
-		p = urllib2.HTTPPasswordMgrWithDefaultRealm()
-		p.add_password(None, url, username, password)
-		handler = urllib2.HTTPBasicAuthHandler(p)
-		opener = urllib2.build_opener(handler)
-		urllib2.install_opener(opener)
-		page = urllib2.urlopen(url).read()
-        	return json.loads(page)
+    raw_json = aruba_handle.get('/api/v1/location?sta_eth_mac='+mac_addr)
+    return json.loads(raw_json)
+
 
 	def lookup(self,mac_addrress):
 	    obj = self.get_json(mac_addrress)
