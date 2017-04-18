@@ -6,8 +6,8 @@ class LocationLookup:
  
 	def get_json(self,mac_addr):
 		url = ('https://137.215.6.208/api/v1/location?sta_eth_mac='+mac_addr)
- 		username = 'admin'
-		password = 'Aruba123!'
+ 		username = ''
+		password = ''
 		p = urllib2.HTTPPasswordMgrWithDefaultRealm()
 		p.add_password(None, url, username, password)
 		handler = urllib2.HTTPBasicAuthHandler(p)
