@@ -55,12 +55,16 @@ m1=
     <coordinates>
       <x>800</x>
       <y>700</y>
-      <w>180</w>
-      <h>70</h>
+      <w>190</w>
+      <h>130</h>
     </coordinates>
     <panel_attributes>Filters out everything
 but the pseudo location
-of a device</panel_attributes>
+of a device
+
+Also resolves building IDs
+and floor IDs into building
+names and floor numbers.</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
