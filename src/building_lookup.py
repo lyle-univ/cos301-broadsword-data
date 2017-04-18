@@ -2,8 +2,8 @@ import aruba_wrapper
 import json
 
 class BuildingLookup:
-    def __init__(self, hostname, port):
-        self.aruba_handle = aruba_wrapper.Aruba(hostname,port)
+    def __init__(self, hostname, port, username, password):
+        self.aruba_handle = aruba_wrapper.Aruba(hostname,port,username,password)
 
     def get_json(self):
         raw_json = aruba_handle.get("/api/v1/building")
@@ -18,7 +18,7 @@ class BuildingLookup:
 
 class BuildingLookupTest:
     def __init__(self):
-        self.bl = BuildingLookup("127.0.0.1","80")
+        self.bl = BuildingLookup("127.0.0.1","80","","")
 
     def mock_get_json(self):
         return json.loads(open('mock_building_json', 'r').read())
