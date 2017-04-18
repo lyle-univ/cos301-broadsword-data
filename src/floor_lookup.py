@@ -6,8 +6,8 @@ class FloorLookup:
     #     self.aruba_handle = aruba_wrapper.Aruba(hostname,port)
     def get_json(self):
         url = 'https://137.215.6.208/api/v1/floor'
-        username = 'admin'
-        password = 'Aruba123!'
+        username = ''
+        password = ''
         p = urllib2.HTTPPasswordMgrWithDefaultRealm()
         p.add_password(None, url, username, password)
         handler = urllib2.HTTPBasicAuthHandler(p)
