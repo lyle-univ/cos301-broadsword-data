@@ -1,6 +1,10 @@
 import nsq
 import json
 import tornado.ioloop
+import building_lookup
+import floor_lookup
+import location_lookup
+import json
 
 address_port = 'http://127.0.0.1:4161'
 writer = nsq.Writer(['127.0.0.1:4150'])
@@ -10,24 +14,28 @@ def publish(src, dest, msgtype, content):
   return result
   
 def Searcher(mac_string):
-  file = open("output.txt", "r")
-  lines = file.readlines()
-  for line in lines:
-    if mac_string in line:
-      parsed_json = json.loads(line)
-      mac=parsed_json["MacAddress"]
-      longitude=parsed_json["longitude"]
-      latitude=parsed_json["latitude"]
-      x=parsed_json["x"]
-      y=parsed_json["y"]
-      result=("{\"MacAddress\":\""+mac+"\",\"Longitude\":\""+longitude+"\",\"Latitude\":\""+latitude+"\",\"x\":\""+x+"\",\"y\":\""+y+"\"}")
-      return result
-  file.close()
+  locationL= location_lookup.LocationLookup()
+  location_json=json.loads(locationL.lookup(mac_string))
+  buildingID=location_json['building_id']
+  floorID=location_json['floor_id']
+  x=location_json['x']
+  y=location_json['y']
+
+  
+  floorL=floor_lookup.FloorLookup()
+  floor_name=floorL.lookup(buildingID,floorID)
+
+  buildingL= building_lookup.BuildingLookup()
+  building_name=buildingL.lookup(buildingID)
+
+  final_content=("{ \"mac_address\": \""+mac_string+"\" ,\"x\": "+str(x)+", \"y\": "+str(y)+", \"building_name\": \""+building_name+"\", \"floor_name\": \""+floor_name+"\"}")
+  return final_content
+
 m="";
 def handler(message):
   obj = json.loads(message.body)
   if (obj['src'] == 'gis' and obj['msgType'] == 'request'):
-#    print obj['content']['mac']
+    #print obj['content']['mac']
     location = Searcher(obj['content']['mac'])
     src = obj['src']
     dest = obj['dest']
