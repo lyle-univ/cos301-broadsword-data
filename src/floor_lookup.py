@@ -2,19 +2,12 @@ import urllib2
 import json
 
 class FloorLookup:
-    # def __init__(self, hostname, port):
-    #     self.aruba_handle = aruba_wrapper.Aruba(hostname,port)
+     def __init__(self, hostname, port, username, password):
+         self.aruba_handle = aruba_wrapper.Aruba(hostname,port,username,password)
+
     def get_json(self):
-        url = 'https://137.215.6.208/api/v1/floor'
-        username = ''
-        password = ''
-        p = urllib2.HTTPPasswordMgrWithDefaultRealm()
-        p.add_password(None, url, username, password)
-        handler = urllib2.HTTPBasicAuthHandler(p)
-        opener = urllib2.build_opener(handler)
-        urllib2.install_opener(opener)
-        page = urllib2.urlopen(url).read()
-        return json.loads(page)
+        raw_json = aruba_handle.get("/api/v1/floor")
+        return json.loads(raw_json)
 
     def lookup(self,building_id,floor_id):
         obj = self.get_json()
