@@ -1,4 +1,3 @@
-import urllib2
 import json
 
 class FloorLookup:
