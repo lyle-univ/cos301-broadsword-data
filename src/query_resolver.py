@@ -14,7 +14,7 @@ parser.add_argument('--nsqlookupd_hostname',
 parser.add_argument('--nsqlookupd_port',
                     help='The port number of the NSQ lookupd daemon', default='4161', metavar='')
 parser.add_argument('--nsqlookupd_polling_interval',
-                    help='The amount of time in seconds between querying all of the supplied nsqlookupd instances. A random amount of time based on this value will be initially introduced in order to add jitter when multiple readers are running', default='15', metavar='')
+                    help='The amount of time in seconds between querying all of the supplied nsqlookupd instances. A random amount of time based on this value will be initially introduced in order to add jitter when multiple readers are running', default='15', type=int, metavar='')
 parser.add_argument('--nsqd_hostname',
                     help='The http hostname of the NSQ daemon', default='http://127.0.0.1', metavar='')
 parser.add_argument('--nsqd_port',
