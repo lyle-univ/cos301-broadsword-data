@@ -6,6 +6,7 @@ import floor_lookup
 import location_lookup
 import json
 import argparse
+#import Malformed_test
 
 
 parser = argparse.ArgumentParser(description='Serving location requests on the an NSQ topic',formatter_class=argparse.ArgumentDefaultsHelpFormatter)
@@ -36,7 +37,7 @@ args = parser.parse_args()
 writer = nsq.Writer([args.nsqd_hostname+':'+args.nsqd_port])
 
 def publish(src, dest, msgtype, content):
-  result="{\"src\":\""+src+"\",\"dest\":\""+dest+"\",\"msgType\":\""+msgtype+"\",,\"queryType\":\"getCurrentLocation\",\"content\":\""+content+"\"} }"
+  result="{\"src\":\""+src+"\",\"dest\":\""+dest+"\",\"msgType\":\""+msgtype+"\",,\"queryType\":\"getCurrentLocation\",\"content\":"+content+" }"
   return result
   
 def Searcher(mac_string):
@@ -59,6 +60,8 @@ def Searcher(mac_string):
 
 m="";
 def handler(message):
+  #validator=malformed_test.validateRequest()
+  #validator.validate(message)
   obj = json.loads(message.body)
   if (obj['src'] == 'gis' and obj['msgType'] == 'request'):
     #print obj['content']['mac']
