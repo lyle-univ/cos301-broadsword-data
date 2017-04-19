@@ -33,7 +33,7 @@ parser.add_argument('--aruba_password',
                     help='The username to use the aruba location engine', default='', metavar='')
 args = parser.parse_args()
 
-writer = nsq.Writer([args.nsqd_hostname+':'+nsqd_port])
+writer = nsq.Writer([args.nsqd_hostname+':'+args.nsqd_port])
 
 def publish(src, dest, msgtype, content):
   result="{\"src\":\""+src+"\",\"dest\":\""+dest+"\",\"msgType\":\""+msgtype+"\",,\"queryType\":\"getCurrentLocation\",\"content\":\""+content+"\"} }"
@@ -79,5 +79,5 @@ def finish_pub(conn, data):
 
 
 r = nsq.Reader(message_handler=handler, lookupd_http_addresses=[args.nsqlookupd_hostname+':'+args.nsqlookupd_port],
-                topic=args.subscribe_topic, channel=args.nsq_channel, lookupd_poll_interval=args.nsqlookupd_polling_interval)
+topic=args.subscribe_topic, channel=args.nsq_channel, lookupd_poll_interval=args.nsqlookupd_polling_interval)
 nsq.run()
