@@ -1,5 +1,36 @@
 \subsection{Technical}
 \subsubsection{API}
+The API provides a response to a getLocation request made to the data topic on the NSQ Server. Furthermore, the request can be made by any subsystem. \\
+The message contained in both the request and response is a JSON String with the formats provided below. \\ \\
+\textbf{The Request}
+\begin{verbatim}
+   {
+       "src"  : <any subsystem can be the source of the request>, 
+       "dest" : "Data", 
+       "msgType" : "request", 
+       "queryType" : "getLocation", 
+       "content" : {
+                       "mac" : "FF:FF: . . . . "
+                   }
+   }     
+		         	
+\end{verbatim}
+\textbf{The Response}
+\begin{verbatim}	
+   {
+       "src"  : "Data", 
+       "dest" : <the same system that made the request>, 
+       "msgType" : "response", 
+       "queryType" : "getLocation", 
+       "content" : {
+                       "success" : <boolean>,
+                       "error" : <reason for error>, 
+                       "coordinate" : <X,Y coordinates relative to the access point>,
+                       "floor_name" : <floor identifier>,
+                       "building_name" : <building identifier>
+                   }
+   }     		         	
+\end{verbatim}
 \subsubsection{Implementation details}
 Due to the change in requirements from a streaming subsystem to a request response subsystem, Apache Flink is no longer a suitable techonology.
 Instead, the requests are receieved and served through NSQ.
