@@ -1,0 +1,17 @@
+\subsection{Technical}
+\subsubsection{API}
+\subsubsection{Implementation details}
+Due to the change in requirements from a streaming subsystem to a request response subsystem, Apache Flink is no longer a suitable techonology.
+Instead, the requests are receieved and served through NSQ.
+The data subsystem consults the aruba location engine as needed to give up to date information to the relevant subsystems. The structure of the subsystem is purely composition as can be seen in figure \ref{fig:data_class_diagram} on page \pageref{fig:data_class_diagram}.
+\begin{figure}
+    \makebox[\textwidth][c]{\includegraphics[width=1\textwidth]{class_diagram.pdf}}
+    \caption{How it fits together}
+    \label{fig:data_class_diagram}
+\end{figure}
+In addition there is a very clean push pull relationship between interfaces of different components within and outside the subsystem as can be seen in figure \ref{fig:data_component_diagram} on page \pageref{fig:data_component_diagram}.
+\begin{figure}
+    \makebox[\textwidth][c]{\includegraphics[width=1\textwidth]{component_diagram.pdf}}
+    \caption{Overview of components}
+    \label{fig:data_component_diagram}
+\end{figure}
