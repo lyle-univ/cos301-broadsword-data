@@ -37,7 +37,7 @@ args = parser.parse_args()
 writer = nsq.Writer([args.nsqd_hostname+':'+args.nsqd_port])
 
 def publish(src, dest, msgtype, content):
-  result="{\"src\":\""+src+"\",\"dest\":\""+dest+"\",\"msgType\":\""+msgtype+"\",,\"queryType\":\"getCurrentLocation\",\"content\":\""+content+"\"} }"
+  result="{\"src\":\""+src+"\",\"dest\":\""+dest+"\",\"msgType\":\""+msgtype+"\",,\"queryType\":\"getCurrentLocation\",\"content\":"+content+" }"
   return result
   
 def Searcher(mac_string):
