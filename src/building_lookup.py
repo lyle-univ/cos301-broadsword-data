@@ -6,7 +6,7 @@ class BuildingLookup:
         self.aruba_handle = aruba_wrapper.Aruba(hostname,port,username,password)
 
     def get_json(self):
-        raw_json = aruba_handle.get("/api/v1/building")
+        raw_json = self.aruba_handle.get("/api/v1/building")
         return json.loads(raw_json)
 
     def lookup(self,building_id):
@@ -30,5 +30,3 @@ class BuildingLookupTest:
             print "simple mock test passed"
         else:
             print "simple mock test failed"
-
-#BuildingLookupTest().test_lookup()
