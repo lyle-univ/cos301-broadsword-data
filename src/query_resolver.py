@@ -10,13 +10,13 @@ import argparse
 
 parser = argparse.ArgumentParser(description='Serving location requests on the an NSQ topic',formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser.add_argument('--nsqlookupd_hostname',
-                    help='The http hostname of the NSQ lookupd daemon', default='http://127.0.0.1', metavar='')
+                    help='The http hostname of the NSQ lookupd daemon', default='127.0.0.1', metavar='')
 parser.add_argument('--nsqlookupd_port',
                     help='The port number of the NSQ lookupd daemon', default='4161', metavar='')
 parser.add_argument('--nsqlookupd_polling_interval',
                     help='The amount of time in seconds between querying all of the supplied nsqlookupd instances. A random amount of time based on this value will be initially introduced in order to add jitter when multiple readers are running', default='15', type=int, metavar='')
 parser.add_argument('--nsqd_hostname',
-                    help='The http hostname of the NSQ daemon', default='http://127.0.0.1', metavar='')
+                    help='The http hostname of the NSQ daemon', default='127.0.0.1', metavar='')
 parser.add_argument('--nsqd_port',
                     help='The http port of the NSQ daemon', default='4150', metavar='')
 parser.add_argument('--subscribe_topic',
