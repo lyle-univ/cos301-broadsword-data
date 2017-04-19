@@ -1,11 +1,12 @@
 import json
+import aruba_wrapper
 
 class LocationLookup:
 	def __init__(self, hostname, port, username, password):
 		self.aruba_handle = aruba_wrapper.Aruba(hostname,port,username,password)
  
 	def get_json(self,mac_addr):
-		raw_json = aruba_handle.get('/api/v1/location?sta_eth_mac='+mac_addr)
+		raw_json = self.aruba_handle.get('/api/v1/location?sta_eth_mac='+mac_addr)
 		return json.loads(raw_json)
 
 
