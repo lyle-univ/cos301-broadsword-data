@@ -6,6 +6,7 @@ import floor_lookup
 import location_lookup
 import json
 import argparse
+import logging
 #import Malformed_test
 
 
@@ -33,7 +34,7 @@ parser.add_argument('--aruba_username',
 parser.add_argument('--aruba_password',
                     help='The username to use the aruba location engine', default='', metavar='')
 args = parser.parse_args()
-
+logging.basicConfig(filename='error.log',level=logging.WARNING)
 writer = nsq.Writer([args.nsqd_hostname+':'+args.nsqd_port])
 
 def publish(src, dest, msgtype, content):
