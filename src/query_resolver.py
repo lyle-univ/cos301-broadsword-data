@@ -37,10 +37,10 @@ parser.add_argument('--test', action='store_true', help='The username to use the
 args = parser.parse_args()
 
 if(args.test):
-	building_lookup.BuildingLookupTest().test_lookup()
-	floor_lookup.FloorLookupTest().test_lookup()
-	location_lookup.LocationLookupTest().test_lookup()
-	exit()
+    building_lookup.BuildingLookupTest().test_lookup()
+    floor_lookup.FloorLookupTest().test_lookup()
+    location_lookup.LocationLookupTest().test_lookup()
+    exit()
 
 logging.basicConfig(filename='error.log',level=logging.WARNING)
 writer = nsq.Writer([args.nsqd_hostname+':'+args.nsqd_port])
