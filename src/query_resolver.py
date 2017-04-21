@@ -33,14 +33,22 @@ parser.add_argument('--aruba_username',
                     help='The username to use the aruba location engine', default='', metavar='')
 parser.add_argument('--aruba_password',
                     help='The username to use the aruba location engine', default='', metavar='')
+parser.add_argument('--test', action='store_true', help='The username to use the aruba location engine')
 args = parser.parse_args()
+
+if(args.test):
+    building_lookup.BuildingLookupTest().test_lookup()
+    floor_lookup.FloorLookupTest().test_lookup()
+#    location_lookup.LocationLookupTest().test_lookup()
+    exit()
+
 logging.basicConfig(filename='error.log',level=logging.WARNING)
 writer = nsq.Writer([args.nsqd_hostname+':'+args.nsqd_port])
 
 def publish(src, dest, msgtype, content):
   result="{\"src\":\""+src+"\",\"dest\":\""+dest+"\",\"msgType\":\""+msgtype+"\",,\"queryType\":\"getCurrentLocation\",\"content\":"+content+" }"
   return result
-  
+
 def Searcher(mac_string):
   locationL= location_lookup.LocationLookup(args.aruba_hostname,args.aruba_port,args.username_port,args.password_port)
   location_json=json.loads(locationL.lookup(mac_string))
@@ -49,7 +57,7 @@ def Searcher(mac_string):
   x=location_json['x']
   y=location_json['y']
 
-  
+
   floorL=floor_lookup.FloorLookup(args.aruba_hostname,args.aruba_port,args.username_port,args.password_port)
   floor_name=floorL.lookup(buildingID,floorID)
 
