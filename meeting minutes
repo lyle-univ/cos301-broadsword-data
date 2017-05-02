@@ -103,3 +103,50 @@ March 31 11:30-12:12
     Have meetings with Vreda, integration and GIS about expectations and requirements from us.
     Write code serves requests from GIS.
     
+May 2 10:30-
+
+Discussions:
+
+	Questions for the other team:
+	Where is the entry point to the program?
+	How do we get it up and running?
+	How do query the system? In other words, what is its interface?
+
+	Draft the latex document skeleton
+		Draft test macro for document consistency.
+			Title
+			Description
+			Severity
+			Mark
+			Steps to reproduce
+		Discussed type of requirements
+		Severity of an issue should be included
+		
+
+	Enumeration of functional requirements:
+		Enumerate each test as an issue, then document pass of fail and any other fields such as severity.
+		Get a device location given a mac address
+			Error handling: malformed queries
+					Client dying
+		Aruba:
+			Does it connect?
+			Handle failure connect.
+		Flink:
+			Does it connect?
+			Does it handle a datastream.
+			Handle failure to connect.
+			What functional requirements must the data team have implemented.
+		Determine all service contracts if something was missed in the meeting.
+	Non-functional
+		Security:
+			Aruba credentials are in the source, which is bad...really really bad.
+		Concurrency:
+			Writing to file.
+		Does it deploy?
+
+Decisions made:
+	Freeze times
+	Division of labour will occur once we have the functional requirements of the data team
+	Make small meaningfull commits.
+	Keep braches simple: wip and master
+	
