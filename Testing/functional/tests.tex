@@ -1,7 +1,35 @@
 \subsection{Tests}
 \FuncReq
-{The title goes here}
-{Then the description. You will notice that a serial has automatically been generated above.}
-{Next the severity of the issue if the test has not passed. Otherwise we can simply state N/A}
-{The Score out of 10. Use your own discretion here.}
-{The status of the test. Pass or Fail}
+{Running Apache Flink with defined data sink}
+{For this test I ran Apache Flink code that I got from the Gladios Data team's repository.The system's defined data sink is \textbf{\textit{  text.map(new Mapper()).writeAsText("C:/Users/rob/Documents/NetBeansProjects/COS301/test.txt");}} but this line will only work on one computer and did not run when we tested it. As can be seen in \textbf{Figure 1}, the reason why the file directory cannot be found is because it is only specified for one computer.
+			\begin{figure}[h]
+				\centering
+				\includegraphics{wrong_file_error.jpg}
+				\caption{Wrong File Path}
+				\label{fig:WrongFIlePath}
+			\end{figure} }
+{Critical}
+{0}
+{Fail}
+		
+
+{Running Flink after changing data sink}
+{For this test I ran Apache Flink code but I changed the data sink to \textbf{\textit{  text.map(new Mapper()).writeAsText(/"tmp/test.txt");}}, so that the system can run on any computer. After changing the data source the system runs without any error and returns a devices location in the text file, as can be seen in \textbf{Figure 2}.As a side note is shows that the result is the Longitude and Latitude but it is actually the x and y values relative to the access point.
+		\begin{figure}[h]
+			\centering
+			\includegraphics{query_location_results.jpg}
+			\caption{Output}
+			\label{fig:Output}
+		\end{figure} 
+}
+		
+{N/A}
+{8}
+{Pass}
+		
+{Running flink without starting the Job Manager}
+{This test will see if Apache Flink runs and returns the relevant information without starting the Job Manager. Flink does run without a Job Manager and returns the same result which can be seen in Figure 2 of the previous test.}
+{N/A}
+{10}
+{Pass}
+
