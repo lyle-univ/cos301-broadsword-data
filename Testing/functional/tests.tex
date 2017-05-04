@@ -1,5 +1,7 @@
 \subsection{Tests}
 \FuncReq
+\graphicspath{ {images/} }
+
 {Running Apache Flink with defined data sink}
 {For this test I ran Apache Flink code that I got from the Gladios Data team's repository.The system's defined data sink is \textbf{\textit{  text.map(new Mapper()).writeAsText("C:/Users/rob/Documents/NetBeansProjects/COS301/test.txt");}} but this line will only work on one computer and did not run when we tested it. As can be seen in \textbf{Figure 1}, the reason why the file directory cannot be found is because it is only specified for one computer.
 			\begin{figure}[h]
@@ -32,4 +34,31 @@
 {N/A}
 {10}
 {Pass}
+
+{Does the current system stream data}
+{Currently Gladios Data only queried a devices mac address once. From this test the system return a devices location, which can be seen in \textbf{Figure 3}.
+		\begin{figure}[h]
+			\centering
+			\includegraphics{right_mac.jpg}
+			\caption{Correct Mac Address}
+			\label{fig:right_mac}
+		\end{figure} 
+}
+{N/A}
+{9}	
+{Pass}	
+	
+{Can the system stream and handle 2000 requests} 
+{For this test case a for loop is used and queries 2 mac addresses 1000 times. The code can be seen in Figure 4. The system only returns the location of one mac address and does not do anything after that. From this I, can conclude that the Gladios Data module cannot take a data stream in nor produce an output data stream.
+	\begin{figure}[h]
+		\centering
+		\includegraphics{stream_test.jpg}
+		\caption{Stream Test}
+		\label{fig:Output}
+	\end{figure} 
+}
+{Critical}
+{0}
+{Fail}	
+
 
