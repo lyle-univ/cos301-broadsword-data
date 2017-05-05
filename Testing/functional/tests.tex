@@ -1,6 +1,6 @@
 \subsection{Tests}
 
-\NonFuncReq
+\FuncReq
 {Running system when connected to the ALE}
 {For this test, the system was queried with a valid mac address while connected to the ALE to see if a location is returned. The test proved succesful with the output shown in \textbf{Figure 1} produced.
 			\begin{figure}[h]
@@ -14,7 +14,7 @@
 {10}
 {Pass}
 
-\NonFuncReq
+\FuncReq
 {Running system when disconnected from the ALE}
 {For this test, the system was queried with a valid mac address while disconnected from the ALE to see if the system is capable of displaying errors. A reasonably verbose error was displayed: \textbf{\textit{ text.map(new Mapper()).writeAsText("Error
 [Source: Socket Stream -> Map -> Sink: Unnamed (1/1)] INFO org.apache.flink.runtime.taskmanager.Task - Source: Socket Stream -> Map -> Sink: Unnamed (1/1) (ea9f7d77aad0d00674c883feb4176b12) switched from RUNNING to FAILED.
@@ -23,7 +23,7 @@ java.lang.RuntimeException: Could not forward element to next operator");}} .}
 {8}
 {Pass}
 
-\NonFuncReq
+\FuncReq
 {Running Apache Flink with defined data sink}
 {For this test I ran Apache Flink code that I got from the Gladios Data team's repository.The system's defined data sink is \textbf{\textit{  text.map(new Mapper()).writeAsText("C:/Users/rob/Documents/NetBeansProjects/COS301/test.txt");}} but this line will only work on one computer and did not run when we tested it. As can be seen in \textbf{Figure 2}, the reason why the file directory cannot be found is because it is only specified for one computer.
 			\begin{figure}[h]
@@ -36,7 +36,7 @@ java.lang.RuntimeException: Could not forward element to next operator");}} .}
 {0}
 {Fail}
 		
-\NonFuncReq
+\FuncReq
 {Running Flink after changing data sink}
 {For this test I ran Apache Flink code but I changed the data sink to \textbf{\textit{  text.map(new Mapper()).writeAsText(/"tmp/test.txt");}}, so that the system can run on any computer. After changing the data source the system runs without any error and returns a devices location in the text file, as can be seen in \textbf{Figure 3}.As a side note is shows that the result is the Longitude and Latitude but it is actually the x and y values relative to the access point.
 		\begin{figure}[h]
@@ -50,14 +50,14 @@ java.lang.RuntimeException: Could not forward element to next operator");}} .}
 {8}
 {Pass}
 		
-\NonFuncReq
+\FuncReq
 {Running flink without starting the Job Manager}
 {This test will see if Apache Flink runs and returns the relevant information without starting the Job Manager. Flink does run without a Job Manager and returns the same result which can be seen in Figure 3 of the previous test.}
 {N/A}
 {10}
 {Pass}
 
-\NonFuncReq
+\FuncReq
 {Does the current system stream data}
 {Currently Gladios Data only queried a devices mac address once. From this test the system return a devices location, which can be seen in \textbf{Figure 4}.
 		\begin{figure}[h]
@@ -71,7 +71,7 @@ java.lang.RuntimeException: Could not forward element to next operator");}} .}
 {9}	
 {Pass}	
 	
-\NonFuncReq
+\FuncReq
 {Can the system stream and handle 2000 requests} 
 {For this test case a for loop is used and queries 2 mac addresses 1000 times. The code can be seen in Figure 5. The system only returns the location of one mac address and does not do anything after that. From this I, can conclude that the Gladios Data module cannot take a data stream in nor produce an output data stream.
 	\begin{figure}[h]
