@@ -16,14 +16,14 @@
 
 \FuncReq
 {Running system when disconnected from the ALE}
-{For this test, the system was queried with a valid mac address while disconnected from the ALE to see if the system is capable of displaying errors. A reasonably verbose error was displayed: 
+{For this test, the system was queried with a valid mac address while disconnected from the ALE to see if the system is capable of catching and displaying errors. A reasonably verbose error was displayed: 
 \begin{verbatim}
 Error
 [Source: Socket Stream -> Map -> Sink: Unnamed (1/1)] INFO org.apache.flink.runtime.taskmanager.Task - Source: Socket Stream -> Map -> Sink: Unnamed (1/1) (ea9f7d77aad0d00674c883feb4176b12) switched from RUNNING to FAILED.
 java.lang.RuntimeException: Could not forward element to next operator
 \end{verbatim}
-}
 However, the program crashed after producing the error, causing the test to fail.
+}
 {Critical}
 {0}
 {Fail}
