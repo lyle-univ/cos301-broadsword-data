@@ -85,4 +85,30 @@ java.lang.RuntimeException: Could not forward element to next operator");}} .}
 {0}
 {Fail}	
 
+\FuncReq
+{Querying system with a malformed mac address}
+{For this test, the system was queried with a malformed mac address while connected to the ALE to see if a location is returned. All though the system did not crash, it did return an empty location (see \textbf{Figure 4}) object instead of some kind of exception to inform the caller that the mac address was invalid.
+			\begin{figure}[h]
+				\centering
+				\includegraphics{functional/images/wrong_mac.jpg}
+				\caption{EmprtyLocation Returned}
+				\label{fig:LocationReturned}
+			\end{figure}
+}
+{N/A}
+{7}
+{Pass}
 
+\FuncReq
+{Querying system with a mac address which is not connected to the network}
+{For this test, the system was queried with a valid mac address, which would have not been visible on the ALE server, to see if a location is returned. All though the system did not crash, it did return an empty location (see \textbf{Figure 5}) object instead of some kind of exception to inform the caller that the mac address was invalid.
+			\begin{figure}[h]
+				\centering
+				\includegraphics{functional/images/wrong_mac.jpg}
+				\caption{EmprtyLocation Returned}
+				\label{fig:LocationReturned}
+			\end{figure}
+}
+{N/A}
+{7}
+{Pass}
