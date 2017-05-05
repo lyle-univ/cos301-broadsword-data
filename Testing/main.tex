@@ -1,6 +1,8 @@
 \documentclass{article}
 \usepackage{hyperref}
 \usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{mdframed}
 \hypersetup{
     colorlinks,
     citecolor=black,
@@ -30,8 +32,10 @@
 
 \clearpage
 
-\section{Introduction}
-This document specifies the steps taken to test the Gladius Implementation of the data subsystem. The data subsystem was required to return a devices location based on its MAC address. The location returned would be the x and y coordinates of the connected device (based on its MAC address) relevant to the Wi-Fi hotspot it is connected to at the time of request. Testing consisted of functional and non-functional requirement tests, with each test case having a description, severity level, a mark obtained out of 10 and a status which may either be Pass or Fail.
+\definecolor{lightgray}{gray}{0.9}
+\newenvironment{italtype}
+{\begin{mdframed}[backgroundcolor=lightgray, linewidth=1pt]\itshape}
+{\end{mdframed}}
 
 \newcounter{FuncReqSerial}
 
