@@ -1,0 +1,3 @@
+[submodule "Testing/COS301-Gladios-Data"]
+	path = Testing/COS301-Gladios-Data
+	url = https://github.com/roberttrankle/COS301-Gladios-Data.git
