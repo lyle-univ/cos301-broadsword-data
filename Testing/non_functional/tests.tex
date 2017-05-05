@@ -1,0 +1,28 @@
+\subsection{Tests}
+\NonFuncReq
+{Security: Aruba Credentials}
+{Take note of lines 45-46 in ClientLoginWeb.java. The Aruba credentails are embedded in the source code on a public repository, which is a big security risk.}
+{Critical}
+{0}
+{Fail}
+
+\NonFuncReq
+{Ease of deployment: Parametric settings}
+{Settings such as the hostname and credentials are hardcoded instead of a settings file or program arguments.}
+{Low}
+{0}
+{Fail}
+
+\NonFuncReq
+{Deployment Framework}
+{Maven was used to manage dependencies. This means the project can be compiled into a single jar file for execution by external entities.}
+{Low}
+{10}
+{Pass}
+
+\NonFuncReq
+{Concurrency}
+{The project fails to write to the same file concurrently. No  concurrent mechanisms are put in place.}
+{Low}
+{0}
+{Fail}
