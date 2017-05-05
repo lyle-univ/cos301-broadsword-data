@@ -25,20 +25,31 @@ java.lang.RuntimeException: Could not forward element to next operator");}} .}
 
 \FuncReq
 {Running Apache Flink with defined data sink}
-{For this test I ran Apache Flink code that I got from the Gladios Data team's repository.The system's defined data sink is \textbf{\textit{  text.map(new Mapper()).writeAsText("C:/Users/rob/Documents/NetBeansProjects/COS301/test.txt");}} but this line will only work on one computer and did not run when we tested it. As can be seen in \textbf{Figure 2}, the reason why the file directory cannot be found is because it is only specified for one computer.
+{For this test I ran Apache Flink code that I got from the Gladios Data team's repository.
+ The system's defined data sink is:
+	\begin{verbatim}
+		text.map(new Mapper())
+		.writeAsText("C:/Users/rob/Documents/NetBeansProjects/COS301/test.txt");
+	\end{verbatim}
+This line will only work on one computer and did not run when we tested it. As can be seen in \textbf{Figure 2}, the reason why the file directory cannot be found is because it is only specified for one computer.
 			\begin{figure}[h]
 				\centering
-				\includegraphics{functional/images/wrong_file_error.jpg}
+				\includegraphics[width=16cm]{wrong_file_error.jpg}
 				\caption{Wrong File Path}
 				\label{fig:WrongFIlePath}
-			\end{figure} }
+			\end{figure} 
+}
 {Critical}
 {0}
 {Fail}
 		
 \FuncReq
 {Running Flink after changing data sink}
-{For this test I ran Apache Flink code but I changed the data sink to \textbf{\textit{  text.map(new Mapper()).writeAsText(/"tmp/test.txt");}}, so that the system can run on any computer. After changing the data source the system runs without any error and returns a devices location in the text file, as can be seen in \textbf{Figure 3}.As a side note is shows that the result is the Longitude and Latitude but it is actually the x and y values relative to the access point.
+{	For this test I ran Apache Flink code but I changed the data sink to
+	\begin{verbatim}
+		text.map(new Mapper()).writeAsText(/"tmp/test.txt");
+	\end{verbatim}
+	This is done so the system can run on any linux computer. After changing the data source the system runs without any error and returns a devices location in the text file, as can be seen in \textbf{Figure 3}.As a side note is shows that the result is the Longitude and Latitude but it is actually the x and y values relative to the access point.
 		\begin{figure}[h]
 			\centering
 			\includegraphics{functional/images/query_location_results.jpg}
