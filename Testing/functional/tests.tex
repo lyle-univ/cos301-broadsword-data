@@ -16,9 +16,13 @@
 
 \FuncReq
 {Running system when disconnected from the ALE}
-{For this test, the system was queried with a valid mac address while disconnected from the ALE to see if the system is capable of displaying errors. A reasonably verbose error was displayed: \textbf{\textit{ text.map(new Mapper()).writeAsText("Error
+{For this test, the system was queried with a valid mac address while disconnected from the ALE to see if the system is capable of displaying errors. A reasonably verbose error was displayed: 
+\begin{verbatim}
+text.map(new Mapper()).writeAsText("Error
 [Source: Socket Stream -> Map -> Sink: Unnamed (1/1)] INFO org.apache.flink.runtime.taskmanager.Task - Source: Socket Stream -> Map -> Sink: Unnamed (1/1) (ea9f7d77aad0d00674c883feb4176b12) switched from RUNNING to FAILED.
-java.lang.RuntimeException: Could not forward element to next operator");}} .}
+java.lang.RuntimeException: Could not forward element to next operator");
+\end{verbatim}
+}
 {N/A}
 {8}
 {Pass}
